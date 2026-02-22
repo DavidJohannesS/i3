@@ -1,0 +1,3 @@
+client.focused          #ff5555 #3D3846 #ffffff #ff5555 #ff5555
+client.focused_inactive #3D3846 #241F31 #ff9999 #191724 #191724
+client.unfocused        #3D3846 #241F31 #ff9999 #191724 #191724

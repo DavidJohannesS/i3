@@ -146,9 +146,10 @@ focus_follows_mouse no
 # black #00000
 # rose orange #ebbcba
 # border, background, font , indicator , otherdiffborder
-client.focused #ebbcba #3D3846 #ffffff #ebbcba #ebbcba
-client.focused_inactive #3D3846 #241F31 #b2b2b2 #191724 #191724
-client.unfocused #3D3846 #241F31 #b2b2b2 #191724 #191724
+#client.focused #ebbcba #3D3846 #ffffff #ebbcba #ebbcba
+#client.focused_inactive #3D3846 #241F31 #b2b2b2 #191724 #191724
+#client.unfocused #3D3846 #241F31 #b2b2b2 #191724 #191724
+include /home/$USER/.config/i3/colors
 #WORKSPACES
 
 workspace $ws1 output HDMI-0
@@ -161,6 +162,7 @@ workspace $ws5 output DP-0
 #workspace $ws10 output HDMI-0
 bindsym Mod1+Shift+W exec --no-startup-id ~/.config/polybar/toggle_ws.sh
 bindsym Mod1+p exec --no-startup-id ~/tools/poly-ws.sh
+bindsym Mod1+Shift+s exec --no-startup-id flameshot gui
 exec --no-startup-id flameshot
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 bindsym Mod1+Tab exec --no-startup-id rofi -show window 
@@ -168,11 +170,11 @@ exec --no-startup-id ~/tools/feh.sh
 bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # Define a keybinding to launch the Polybar script with the active display
 bindsym Mod1+t exec --no-startup-id ~/tools/poly.sh
-exec --no-startup-id i3-msg "workspace 2; exec thunar; workspace 1; exec firefox; workspace 3; exec xfce4-terminal"
+#exec --no-startup-id i3-msg "workspace 2; exec thunar; workspace 1; exec firefox; workspace 3; exec xfce4-terminal"
 
 #new_window 1pixel
 #new_float 1pixel
-gaps inner 5
-gaps outer 5
+#gaps inner 5
+#gaps outer 5
 for_window [class="Polybar"] floating enable 
 for_window [class="Polybar"] border none
