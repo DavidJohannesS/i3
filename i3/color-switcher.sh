@@ -1,9 +1,10 @@
 #!/bin/bash
-
-if ip link show tun0 >/dev/null 2>&1; then
-    cp ~/.config/i3/home-color ~/.config/i3/colors
+ export DISPLAY=:0 
+ export XAUTHORITY=/home/david/.Xauthority
+ sleep 0.5
+if nmcli -t -f TYPE,STATE connection show --active | grep -q "vpn:activated"; then
+    cp /home/david/.config/i3/work-color /home/david/.config/i3/colors
 else
-    cp ~/.config/i3/work-color ~/.config/i3/colors
+    cp /home/david/.config/i3/home-color /home/david/.config/i3/colors
 fi
-
-i3-msg reload
+i3-msg restart
