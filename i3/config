@@ -13,8 +13,8 @@
 #client.focused_inactive #3D3846 #241F31 #b2b2b2 #191724 #191724
 #client.unfocused #3D3846 #241F31 #b2b2b2 #191724 #191724
 for_window [class="^.*"] border pixel 2
-gaps inner 8
-gaps outer 8
+#gaps inner 8
+#gaps outer 8
 for_window [class="Polybar"] floating enable 
 for_window [class="Polybar"] border none
 include /home/$USER/.config/i3/colors
@@ -29,8 +29,12 @@ bindsym Mod1+Shift+s exec --no-startup-id flameshot gui
 bindsym Mod1+Tab exec --no-startup-id rofi -show window 
 bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 bindsym Mod1+t exec --no-startup-id ~/tools/poly.sh
-# On Startup 
+exec_always --no-startup-id xset s off
+exec_always --no-startup-id xset -dpms On Startup 
 exec --no-startup-id flameshot
+exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
+exec --no-startup-id pasystray
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 exec --no-startup-id ~/tools/feh.sh
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork --image=/home/$USER/tools/wp/lock.png
