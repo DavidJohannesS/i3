@@ -22,7 +22,7 @@ include /home/$USER/.config/i3/colors
 #       Shortcuts        #
 ##########################
 # Appliation shortcuts
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec kitty
 bindsym Mod1+p exec --no-startup-id ~/tools/poly-ws.sh
 bindsym Mod1+Shift+W exec --no-startup-id ~/.config/polybar/toggle_ws.sh
 bindsym Mod1+Shift+s exec --no-startup-id flameshot gui
