@@ -1,0 +1,138 @@
+##########################
+#       Visuals          #
+##########################
+# Main colors used in colors file:
+# main dark purple #241F31
+# light dark purple #3D3846
+# bright white #ffffff
+# soft shite #b2b2b2
+# black #00000
+# rose orange #ebbcba
+# border, background, font , indicator , otherdiffborder
+#client.focused #ebbcba #3D3846 #ffffff #ebbcba #ebbcba
+#client.focused_inactive #3D3846 #241F31 #b2b2b2 #191724 #191724
+#client.unfocused #3D3846 #241F31 #b2b2b2 #191724 #191724
+for_window [class="^.*"] border pixel 2
+#gaps inner 8
+#gaps outer 8
+for_window [class="Polybar"] floating enable 
+for_window [class="Polybar"] border none
+include /home/$USER/.config/i3/colors
+##########################
+#       Shortcuts        #
+##########################
+# Appliation shortcuts
+bindsym $mod+Return exec xfce4-terminal
+bindsym Mod1+p exec --no-startup-id ~/tools/poly-ws.sh
+bindsym Mod1+Shift+W exec --no-startup-id ~/.config/polybar/toggle_ws.sh
+bindsym Mod1+Shift+s exec --no-startup-id flameshot gui
+bindsym Mod1+Tab exec --no-startup-id rofi -show window 
+bindcode $mod+40 exec "rofi -modi drun,run -show drun"
+bindsym Mod1+t exec --no-startup-id ~/tools/poly.sh
+exec_always --no-startup-id xset s off
+exec_always --no-startup-id xset -dpms On Startup 
+exec --no-startup-id flameshot
+exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
+exec --no-startup-id pasystray
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
+exec --no-startup-id ~/tools/feh.sh
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork --image=/home/$USER/tools/wp/lock.png
+##########################
+#        Navigation      #
+##########################
+bindsym $mod+r mode "resize"
+bindsym $mod+Shift+q kill
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+bindsym $mod+h split h
+bindsym $mod+v split v
+bindsym $mod+f fullscreen toggle
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+a focus parent
+#bindsym $mod+d focus child
+mode "resize" {
+    bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+##########################
+#      WORKSPACES        #
+##########################
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+bindsym $mod+Shift+1 move container to workspace number $ws1; workspace $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2; workspace $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3; workspace $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4; workspace $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5; workspace $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6; workspace $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7; workspace $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8; workspace $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9; workspace $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10; workspace $ws10
+workspace $ws1 output HDMI-0
+workspace $ws2 output HDMI-0
+workspace $ws3 output DP-0
+workspace $ws4 output DP-0
+workspace $ws5 output DP-0
+workspace $ws6 output HDMI-0
+workspace $ws7 output HDMI-0
+workspace $ws8 output DP-0
+workspace $ws9 output DP-0
+workspace $ws10 output DP-0
+##########################
+#        General         #
+##########################
+set $mod Mod1
+font pango:0xProto Nerd Font Bold 9
+exec --no-startup-id dex --autostart --environment i3
+floating_modifier $mod
+tiling_drag modifier titlebar
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Logout of Xsession?' -B 'Yes, exit i3' 'i3-msg exit'"
+set $refresh_i3status killall -SIGUSR1 i3status
+focus_follows_mouse no
+#########################
+#        Laptop         #
+#########################
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5% && notify-send "Brightness +5%"
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%- && notify-send "Brightness -5%"
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
