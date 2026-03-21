@@ -30,7 +30,7 @@ bindsym Mod1+Tab exec --no-startup-id rofi -show window
 bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 bindsym Mod1+t exec --no-startup-id ~/tools/poly.sh
 exec_always --no-startup-id xset s off
-exec_always --no-startup-id xset -dpms On Startup 
+exec_always --no-startup-id xset -dpms
 exec --no-startup-id flameshot
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
