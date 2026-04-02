@@ -22,7 +22,7 @@ include /home/$USER/.config/i3/colors
 #       Shortcuts        #
 ##########################
 # Appliation shortcuts
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec xfce4-terminal
 bindsym Mod1+p exec --no-startup-id ~/tools/poly-ws.sh
 bindsym Mod1+Shift+W exec --no-startup-id ~/.config/polybar/toggle_ws.sh
 bindsym Mod1+Shift+s exec --no-startup-id flameshot gui
@@ -34,7 +34,6 @@ exec_always --no-startup-id xset -dpms
 exec --no-startup-id flameshot
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
-exec --no-startup-id pasystray
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 exec --no-startup-id ~/tools/feh.sh
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork --image=/home/$USER/tools/wp/lock.png
@@ -106,16 +105,16 @@ bindsym $mod+Shift+7 move container to workspace number $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8; workspace $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9; workspace $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10; workspace $ws10
-workspace $ws1 output HDMI-0
-workspace $ws2 output HDMI-0
-workspace $ws3 output DP-0
-workspace $ws4 output DP-0
-workspace $ws5 output DP-0
-workspace $ws6 output HDMI-0
-workspace $ws7 output HDMI-0
-workspace $ws8 output DP-0
-workspace $ws9 output DP-0
-workspace $ws10 output DP-0
+workspace $ws1 output DP-0
+workspace $ws2 output DP-0
+workspace $ws3 output HDMI-0
+workspace $ws4 output HDMI-0
+workspace $ws5 output HDMI-0
+workspace $ws6 output DP-0
+workspace $ws7 output DP-0
+workspace $ws8 output HDMI-0
+workspace $ws9 output HDMI-0
+workspace $ws10 output HDMI-0
 ##########################
 #        General         #
 ##########################
